@@ -1,7 +1,5 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
-const name = ref('John')
-const lastName = ref('Snow')
 
 const imageUrl = ref('test')
 
