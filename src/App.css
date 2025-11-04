@@ -3,3 +3,15 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.message {
+  display: none;
+}
+
+.message--active {
+  display: block;
+}
+
+.message--error {
+  color: red;
+}
