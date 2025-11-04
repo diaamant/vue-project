@@ -61,14 +61,19 @@ const countOfLowPriceBooks = computed(() => {
 
 <template>
   <ul>
-    <li v-for="book in books" :key="book.id">
-      <div v-for="(value, key, index) in book" :key="`${book.id}-${value}`">
-        {{ index }}: {{ key }}: {{ value }}
-      </div>
-      <br />
-    </li>
+    <template v-for="(book, index) in books" :key="book.id">
+      <li>
+        {{ index + 1 }}. "{{ book.title }}" by {{ book.author }} - ${{ book.price }} (Votes:
+        {{ book.votes }})
+      </li>
+      <li class="divider" role="presentation"></li>
+    </template>
   </ul>
   <p>Кол-во книг с низкой ценой: {{ countOfLowPriceBooks }}</p>
+
+  <ul>
+    <li v-for="(value, key, index) in books[0]" :key="key">{{ index }}: {{ key }}: {{ value }}</li>
+  </ul>
 </template>
 
 <style src="./App.css"></style>
