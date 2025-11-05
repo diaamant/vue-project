@@ -1,60 +1,32 @@
 <script setup>
-import { computed, reactive, ref } from 'vue'
+import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue'
+const name = ref('John')
+const lastName = ref('Snow')
 
-import { books as initialBooks } from '@/data/books.js'
+const count = ref(0)
 
-const books = reactive(initialBooks)
-const isShow = ref(true)
-
-const countOfLowPriceBooks = computed(() => {
-  const filterBooks = books.filter((book_) => book_.price < 500)
-  return filterBooks.length
+onBeforeMount(() => {
+  console.log('onBeforeMount')
 })
 
-const booksFilteredByVotes = computed(() => {
-  const bookCopy = [...books]
-  return bookCopy.sort((a, b) => b.votes - a.votes)
+onMounted(() => {
+  console.log('onMounted')
 })
 
-function onVoteBtnClick(book, like, event) {
-  console.log(event)
-  console.log(like)
-  book.isVoted = like
-  if (!like) {
-    book.votes -= 1
-    return
-  }
-  book.votes += 1
-}
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate')
+})
+
+onUpdated(() => {
+  console.log('onUpdated')
+})
 </script>
 
 <template>
-  <ul>
-    <li v-for="book in booksFilteredByVotes" :key="book.id">
-      <div v-for="(value, key, index) in book" :key="`${book.id}-${value}`">
-        {{ index }}: {{ key }}: {{ value }}
-      </div>
-      <button v-if="!book.isVoted" @click="onVoteBtnClick(book, true, $event)">
-        👍 Проголосовать
-      </button>
-      <button v-else disabled>Вы проголосовали</button>
-      <button v-if="book.isVoted" @click="onVoteBtnClick(book, false, $event)">
-        👎 Не нравится
-      </button>
-      <br />
-    </li>
-  </ul>
-  <p>Кол-во книг с низкой ценой: {{ countOfLowPriceBooks }}</p>
+  <p class="greeting">Hello, {{ name + ' ' + lastName }}!</p>
 
-  <br />
-  <template v-if="true">
-    <h3>v-if Template</h3>
-    <p>Демонстрация</p>
-  </template>
-
-  <br />
-  <button @click="isShow = !isShow">Show</button>
-  <p v-show="isShow">{{ isShow }}</p>
+  <button v-on:click="count++">Add 1</button>
+  <p>Счетчик: {{ count }}</p>
 </template>
 
 <style src="./App.css"></style>
