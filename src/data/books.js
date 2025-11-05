@@ -1,0 +1,60 @@
+// data/books.js
+
+export const books = [
+  {
+    id: 101,
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    price: 599,
+    votes: 27,
+    isVoted: false,
+  },
+  {
+    id: 102,
+    title: 'The Pragmatic Programmer',
+    author: 'Andrew Hunt',
+    price: 649,
+    votes: 34,
+    isVoted: false,
+  },
+  {
+    id: 103,
+    title: 'You Don’t Know JS',
+    author: 'Kyle Simpson',
+    price: 499,
+    votes: 19,
+    isVoted: true,
+  },
+  {
+    id: 104,
+    title: 'JavaScript: The Good Parts',
+    author: 'Douglas Crockford',
+    price: 399,
+    votes: 22,
+    isVoted: false,
+  },
+  {
+    id: 105,
+    title: 'Refactoring',
+    author: 'Martin Fowler',
+    price: 699,
+    votes: 41,
+    isVoted: true,
+  },
+  {
+    id: 106,
+    title: 'Design Patterns',
+    author: 'Erich Gamma',
+    price: 799,
+    votes: 37,
+    isVoted: false,
+  },
+  {
+    id: 107,
+    title: 'Effective JavaScript',
+    author: 'David Herman',
+    price: 549,
+    votes: 25,
+    isVoted: false,
+  },
+]
