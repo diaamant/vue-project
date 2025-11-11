@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import BaseLayout from './components/BaseLayout.vue'
+import BaseButton from './components/BaseButton.vue'
 const name = ref('John')
 const lastName = ref('Snow')
 </script>
